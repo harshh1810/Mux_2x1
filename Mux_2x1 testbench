@@ -1,0 +1,22 @@
+module mux_2x1_tb();
+  reg [0:1]i;
+  reg s;
+  wire y;
+  
+  mux_2x1 mux1 (y,i,s);
+  
+  initial
+    begin
+    
+           i=2'b01;s=1'b1;
+ 	   #5; i=2'b00;s=1'b0;
+       #5; i=2'b01;s=1'b1;
+       #5; i=2'b10;s=1'b0;
+       #5; i=2'b11;s=1'b1;
+    end 
+    initial
+    begin
+      $dumpfile("dump.vcd");
+  $dumpvars(1);
+    end  
+endmodule
